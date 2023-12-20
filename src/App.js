@@ -1,17 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react';
-import LoginForm from './LoginForm';
+import "./App.css";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import FormulaireInscription from "./FormulaireInscription";
+import List from "./List";
+import Recette from "./Recette";
+import Nav from "./Nav";
 
 function App() {
   return (
-    <div className="App"> 
-    
-      <h1>Mon Application</h1>
-      <LoginForm/>
-
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Nav />}>
+          <Route index element={<List />}></Route>
+          <Route path="formulaire" element={<FormulaireInscription />}></Route>
+          <Route path="/recette/:id" element={<Recette />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
 
 export default App;

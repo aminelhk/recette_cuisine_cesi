@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const LoginForm = ({ onLogin }) => {
-  const [nom, setNom] = useState('');
-  const [prenom, setPrenom] = useState('');
-  const [dateNaissance, setDateNaissance] = useState('');
-  const [mail, setMail] = useState('');
-  const [motDePasse, setMotDePasse] = useState('');
+  const [nom, setNom] = useState("");
+  const [prenom, setPrenom] = useState("");
+  const [dateNaissance, setDateNaissance] = useState("");
+  const [mail, setMail] = useState("");
+  const [motDePasse, setMotDePasse] = useState("");
   const [isInscription, setIsInscription] = useState(false);
 
   const handleNomChange = (e) => setNom(e.target.value);
@@ -18,7 +18,7 @@ const LoginForm = ({ onLogin }) => {
     e.preventDefault();
     if (isInscription) {
       // Logique pour l'inscription
-      console.log('Inscription :', {
+      console.log("Inscription :", {
         nom,
         prenom,
         dateNaissance,
@@ -27,7 +27,7 @@ const LoginForm = ({ onLogin }) => {
       });
     } else {
       // Logique pour la connexion
-      console.log('Connexion :', {
+      console.log("Connexion :", {
         mail,
         motDePasse,
       });
@@ -37,9 +37,9 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={{ textAlign: "center" }} onSubmit={handleSubmit}>
       {isInscription ? <h2>Inscription</h2> : <h2>Connexion</h2>}
-      
+
       {isInscription && (
         <>
           <label>
@@ -54,7 +54,11 @@ const LoginForm = ({ onLogin }) => {
           <br />
           <label>
             Date de Naissance:
-            <input type="text" value={dateNaissance} onChange={handleDateNaissanceChange} />
+            <input
+              type="text"
+              value={dateNaissance}
+              onChange={handleDateNaissanceChange}
+            />
           </label>
           <br />
         </>
@@ -67,16 +71,22 @@ const LoginForm = ({ onLogin }) => {
       <br />
       <label>
         Mot de Passe:
-        <input type="password" value={motDePasse} onChange={handleMotDePasseChange} />
+        <input
+          type="password"
+          value={motDePasse}
+          onChange={handleMotDePasseChange}
+        />
       </label>
       <br />
 
       <button type="submit">
-        {isInscription ? 'S\'inscrire' : 'Se connecter'}
+        {isInscription ? "S'inscrire" : "Se connecter"}
       </button>
 
       <button type="button" onClick={() => setIsInscription(!isInscription)}>
-        {isInscription ? 'Déjà un compte ? Se connecter' : 'Pas encore de compte ? S\'inscrire'}
+        {isInscription
+          ? "Déjà un compte ? Se connecter"
+          : "Pas encore de compte ? S'inscrire"}
       </button>
     </form>
   );

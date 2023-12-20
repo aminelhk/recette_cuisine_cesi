@@ -1,0 +1,25 @@
+.Title {
+    text-align: center;
+}
+
+.img {
+    height: 90%;
+    width: 40%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.cote {
+    width: 22.5%;
+    color: black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.mLeft {
+    margin-left: 5%;
+}
+
+.mRight {
+    margin-right: 5%;
+}
